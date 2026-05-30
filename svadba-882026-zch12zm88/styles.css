@@ -147,12 +147,24 @@ main {
 
 .nav-action {
   text-align: right;
-  white-space: nowrap;
+}
+
+.nav-links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
+.program-name .nav-links {
+  margin-left: 0.5rem;
 }
 
 .map-link {
   display: inline-block;
-  margin-left: 0.35rem;
+  margin-left: 0;
   padding: 0.15rem 0.55rem;
   font-size: 0.78rem;
   font-weight: 600;
@@ -166,6 +178,16 @@ main {
 .map-link:hover {
   background: rgba(107, 127, 106, 0.22);
   color: var(--color-text);
+}
+
+.map-link--waze {
+  color: #0d47a1;
+  background: rgba(51, 153, 255, 0.18);
+}
+
+.map-link--waze:hover {
+  background: rgba(51, 153, 255, 0.32);
+  color: #062e6f;
 }
 
 .map-link--emph {
@@ -217,7 +239,7 @@ main {
   gap: 0.5rem 0.65rem;
 }
 
-.program-card-title .map-link {
+.program-card-title .nav-links {
   margin-left: 0;
   font-family: var(--font-body);
   font-style: normal;
