@@ -122,6 +122,67 @@ main {
   font-style: italic;
 }
 
+/* Navigácia — tabuľka miest + odkazy v programe */
+.locations-nav {
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.1rem;
+  background: var(--color-bg);
+  border-radius: calc(var(--radius) - 2px);
+  border: 1px solid rgba(166, 139, 91, 0.25);
+}
+
+.locations-nav .program-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.locations-nav .program-row--head {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.nav-place {
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.nav-action {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.map-link {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-accent-dark);
+  background: rgba(107, 127, 106, 0.12);
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+.map-link:hover {
+  background: rgba(107, 127, 106, 0.22);
+  color: var(--color-text);
+}
+
+.map-link--emph {
+  font-size: 0.82rem;
+}
+
+.program-row--map-all {
+  margin-top: 0.35rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(166, 139, 91, 0.3);
+  border-bottom: none;
+}
+
+.map-actions {
+  margin: 0 0 1rem;
+}
+
 /* Program — Blatné | Cífer vedľa seba od strednej šírky */
 .program-grid {
   display: grid;
@@ -147,6 +208,19 @@ main {
   font-family: var(--font-heading);
   font-size: 1.35rem;
   color: var(--color-gold);
+}
+
+.program-card-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.65rem;
+}
+
+.program-card-title .map-link {
+  margin-left: 0;
+  font-family: var(--font-body);
+  font-style: normal;
 }
 
 /* Tabuľka: stĺpec čas | stĺpec názov */
