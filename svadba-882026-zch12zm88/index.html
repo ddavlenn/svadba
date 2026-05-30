@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="sk">
 <head>
   <meta charset="UTF-8">
-  <title>Svadba</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Naša svadba</title>
   <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,82 +17,148 @@
     document.body.innerHTML = "Prístup zamietnutý";
   }
 </script> -->
-  <h1>!!! Stranka je ešte vo vývoji, bližie informacie budú dostupné koncom mája. Prosím, prezrite si stránku hlavne pár dní pred svadbou</h1>
 
-  <h2>Naša svadba 💍</h2>
-  <p>Vitajte na našej webstránke. V pravý čas 😅 nižšie nájdete všetky potrebné informácie. V prípade hocijakých otázok nás neváhajte kontaktovať.</p>
-  <h2>Program (je len orientačný)</h2>
-  
-  <h3>Blatné</h3>
-  <ul>
-    <li>Odobierka: cca 14:00 - 14:30</li>
-    <li>Omša: 15:00</li>
-    <!-- <li>Gratulácie: cca 16:00 - 17:00</li> -->
-    <li>Odvoz v prípade potreby bude zabezpečený</li>
-  </ul>
-  <h3>Cífer</h3>
-  <ul>
-    <!-- <li>Rozbíjanie taniera: 17:15</li>
-    <li>Príchod do sály, príhovor, prípitok, ...: 17:20</li> -->
-    <li>Večera, kávička: 17:30</li>
-    <!-- <li>Mladomanželský tanec, rodičovský tanec, prvé tanečné kolo: 18:30</li> -->
-    <li>Krájanie torty: 19:15</li>
-    <!-- <li>Tanec, foto atď: cca 19:45 - 00:00</li> -->
-    <li>Druhá večera (Rauty): 21:00</li>
-    <li>Čepčenie: 00:00</li>
-    <li>Redový tanec (Tanec nevesty): 00:20</li>
-    <!-- <li>Druhý manželský tanec: 01:30</li> -->
-    <li>Zábava až kým budeme vládať</li>
-  </ul>
+  <div class="page">
+    <p class="banner" role="status">
+      Stránka je ešte vo vývoji — bližšie informácie budú dostupné koncom mája.
+      Prosím, prezrite si ju hlavne pár dní pred svadbou.
+    </p>
 
-  <h3>Svadobné dary?</h3>
-  <p>Ak neviete čo nám dať,</p>
-  <p>netreba sa strachovať.</p>
-  <p>Na domček, či kravičku,</p>
-  <p>prispejte nám trošičku.</p>
-  <!-- <p>pozn. rátajte aj s redovým (nevestinym) tancom, lebo nevesta nebude zadarmo 😉</p> -->
-  <p class="note">pozn. rátajte aj s redovým (nevestinym) tancom, lebo nevesta nebude zadarmo  😉</p>
+    <header class="hero">
+      <p class="hero-label">Vitajte</p>
+      <h1>Naša svadba</h1>
+      <p class="hero-lead">
+        Nižšie nájdete program, dopravu, mapu a ďalšie informácie.
+        Pri otázkach nás neváhajte kontaktovať.
+      </p>
+    </header>
 
-  <h2>Doprava</h2>
-  <p>Doprava z Bratislavy do Blatného bude zabezpečená autobusom a autami.</p>
-  <p>Doprava z Jelenca do Blatného bude zabezpečená autobusom.</p>
-  <p>Doprava z Blatného do Cífera bude zabezpečená autobusom a autami.</p>
-  <p>Doprava z Cífera domov do okolia a Bratislavi bude zabezpečená autami.</p>
-  <p>Doprava z Cífera domov do Jelenca bude zabezpečená autobusom.</p>
+    <main>
+      <section class="block" id="program">
+        <h2>Program</h2>
+        <p class="block-intro">Časy sú orientačné.</p>
 
-  
-  <h2>Miesto odobierky</h2>
-  <h2>Mapa – trasa a miesta</h2>
-  <div class="map-wrap">
-    <iframe
-      src="https://www.google.com/maps/d/embed?mid=1_xegxv45d_Z6NQtNGCnnhra49nlGjGo"
-      width="100%"
-      height="450"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Mapa svadby">
-    </iframe>
+        <div class="program-grid">
+          <article class="program-card">
+            <h3>Blatné</h3>
+            <div class="program-table" role="table" aria-label="Program v Blatnom">
+              <div class="program-row program-row--head" role="row">
+                <span class="program-time" role="columnheader">Čas</span>
+                <span class="program-name" role="columnheader">Udalosť</span>
+              </div>
+              <div class="program-row" role="row">
+                <span class="program-time">cca 14:00–14:30</span>
+                <span class="program-name">Odobierka</span>
+              </div>
+              <div class="program-row" role="row">
+                <span class="program-time">15:00</span>
+                <span class="program-name">Omša</span>
+              </div>
+              <div class="program-row program-row--note" role="row">
+                <span class="program-name">Odvoz v prípade potreby bude zabezpečený</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="program-card">
+            <h3>Cífer</h3>
+            <div class="program-table" role="table" aria-label="Program v Cíferi">
+              <div class="program-row program-row--head" role="row">
+                <span class="program-time" role="columnheader">Čas</span>
+                <span class="program-name" role="columnheader">Udalosť</span>
+              </div>
+              <div class="program-row" role="row">
+                <span class="program-time">17:30</span>
+                <span class="program-name">Večera, kávička</span>
+              </div>
+              <div class="program-row" role="row">
+                <span class="program-time">19:15</span>
+                <span class="program-name">Krájanie torty</span>
+              </div>
+              <div class="program-row" role="row">
+                <span class="program-time">21:00</span>
+                <span class="program-name">Druhá večera (rauty)</span>
+              </div>
+              <div class="program-row" role="row">
+                <span class="program-time">00:00</span>
+                <span class="program-name">Čepčenie</span>
+              </div>
+              <div class="program-row" role="row">
+                <span class="program-time">00:20</span>
+                <span class="program-name">Redový tanec (tanec nevesty)</span>
+              </div>
+              <div class="program-row" role="row">
+                <span class="program-time"></span>
+                <span class="program-name">Zábava, kým budeme vládať</span>
+              </div>
+              <!-- <div class="program-row program-row--note" role="row">
+                <span class="program-name">Zábava, kým budeme vládať</span>
+              </div> -->
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="block block--accent" id="dary">
+        <h2>Svadobné dary</h2>
+        <blockquote class="verse">
+          <p>Ak neviete, čo nám dať,</p>
+          <p>netreba sa strachovať.</p>
+          <p>Na domček, či kravičku,</p>
+          <p>prispejte nám trošičku.</p>
+        </blockquote>
+        <p class="note">Pozn.: rátajte aj s redovým (nevestiným) tancom — nevesta nebude zadarmo 😉</p>
+      </section>
+
+      <section class="block" id="doprava">
+        <h2>Doprava</h2>
+        <ul class="plain-list">
+          <li>Bratislava → Blatné: autobus a autá</li>
+          <li>Jelenec → Blatné: autobus</li>
+          <li>Blatné → Cífer: autobus a autá</li>
+          <li>Cífer → okolie a Bratislava: autá</li>
+          <li>Cífer → Jelenec: autobus</li>
+        </ul>
+      </section>
+
+      <section class="block" id="mapa">
+        <h2>Mapa — trasa a miesta</h2>
+        <p class="block-intro">Odobierka, obrad a hostina na jednej mape.</p>
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/d/embed?mid=1_xegxv45d_Z6NQtNGCnnhra49nlGjGo"
+            width="100%"
+            height="450"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa svadby">
+          </iframe>
+        </div>
+      </section>
+
+      <section class="block" id="parkovanie">
+        <h2>Možnosti parkovania</h2>
+        <p class="placeholder">Informácie doplníme čoskoro.</p>
+      </section>
+
+      <section class="block" id="fotky">
+        <h2>Svadobné fotografie</h2>
+        <p>
+          Po obdržaní fotografií od fotografa ich nahrajeme do zdieľaného albumu.
+          Priečinok je zabezpečený heslom z pozvánky.
+        </p>
+        <p>
+          <a class="button" href="https://eu.zonerama.com/MandM24/Album/15129342" target="_blank" rel="noopener noreferrer">
+            Otvoriť album
+          </a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Tešíme sa na vás.</p>
+    </footer>
   </div>
-
-  <!-- <h2>Fotky šoférov</h2>
-  <p>Pracuje sa na tom...</p> -->
-
-  <h2>Možnosti parkovania</h2>
-  <p>Pracuje sa na tom...</p>
-
-  <!-- <h2></h2>
-  <p>Pracuje sa na tom...</p> -->
-
-
-
-  
-
-  <h2>Svadovné fotografie</h2>
-  <p>Po obdržaní svadobných fotografií od pána fotografa nahrajeme tieto fotografie do zdieľaného priečinku na tomto linku:</p>
-  <a href="https://eu.zonerama.com/MandM24/Album/15129342">Link na fotky</a>
-  <p>Priečinok je zabezpečený heslom, ktoré ste obdržali v pozvánke.</p>
-
 </body>
 </html>

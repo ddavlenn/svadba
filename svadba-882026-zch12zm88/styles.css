@@ -1,15 +1,321 @@
-.note {
-  font-size: 0.9rem;
-  color: #555;
-  font-style: italic;
-  margin-top: 0.25rem;
+/* === Premenné (farby, rozmery) — zmeníte na jednom mieste celý vzhľad === */
+:root {
+  --color-bg: #f7f4ef;
+  --color-surface: #ffffff;
+  --color-text: #2a2926;
+  --color-text-muted: #5c5852;
+  --color-accent: #6b7f6a;
+  --color-accent-dark: #4d5f4c;
+  --color-gold: #a68b5b;
+  --color-banner-bg: #ebe4d8;
+  --color-banner-text: #4a453c;
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+  --shadow: 0 2px 12px rgba(42, 41, 38, 0.06);
+  --radius: 10px;
+  --max-width: 960px;
+  --program-time-col: 8.5rem;
 }
 
-.map-wrap {
-  max-width: 900px;
-  margin: 1rem 0 2rem;
+/* Reset a základ stránky */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Obal celého obsahu — centrovanie a max. šírka */
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 3rem;
+}
+
+/* Upozornenie vo vývoji */
+.banner {
+  margin: 0 0 1.5rem;
+  padding: 0.85rem 1rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--color-banner-text);
+  background: var(--color-banner-bg);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--color-gold);
+}
+
+/* Hlavička / úvod */
+.hero {
+  text-align: center;
+  padding: 1.5rem 0 2.5rem;
+  border-bottom: 1px solid rgba(166, 139, 91, 0.35);
+}
+
+.hero-label {
+  margin: 0 0 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.hero h1 {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 8vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+.hero-lead {
+  margin: 0 auto;
+  max-width: 32em;
+  color: var(--color-text-muted);
+}
+
+/* Sekcie obsahu */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.block {
+  padding: 1.5rem 1.35rem;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.block--accent {
+  background: linear-gradient(135deg, #faf8f5 0%, #f0ebe3 100%);
+  border: 1px solid rgba(166, 139, 91, 0.2);
+}
+
+.block h2 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-accent-dark);
+}
+
+.block-intro,
+.placeholder {
+  margin: 0 0 1rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.placeholder {
+  font-style: italic;
+}
+
+/* Program — Blatné | Cífer vedľa seba od strednej šírky */
+.program-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 680px) {
+  .program-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.program-card {
+  padding: 1.1rem 1.15rem;
+  background: var(--color-bg);
+  border-radius: calc(var(--radius) - 2px);
+  min-width: 0;
+}
+
+.program-card h3 {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--color-gold);
+}
+
+/* Tabuľka: stĺpec čas | stĺpec názov */
+.program-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-size: 0.98rem;
+}
+
+.program-row {
+  display: grid;
+  grid-template-columns: var(--program-time-col) minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: baseline;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(42, 41, 38, 0.07);
+}
+
+.program-row:last-child {
+  border-bottom: none;
+}
+
+.program-row--head {
+  padding-top: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(166, 139, 91, 0.35);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.program-row--head .program-time,
+.program-row--head .program-name {
+  font-weight: 600;
+}
+
+.program-time {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent-dark);
+  white-space: nowrap;
+}
+
+.program-name {
+  color: var(--color-text);
+  line-height: 1.45;
+  word-wrap: break-word;
+}
+
+/* Riadok bez času — text cez celú šírku */
+.program-row--note {
+  grid-template-columns: 1fr;
+  padding-top: 0.65rem;
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  border-bottom: none;
+}
+
+@media (max-width: 400px) {
+  :root {
+    --program-time-col: 6.75rem;
+  }
+
+  .program-row {
+    column-gap: 0.65rem;
+    font-size: 0.92rem;
+  }
+
+  .program-time {
+    white-space: normal;
+  }
+}
+
+/* Verš o daroch */
+.verse {
+  margin: 0.5rem 0 1rem;
+  padding: 0;
+  border: none;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+
+.verse p {
+  margin: 0.15rem 0;
+}
+
+.note {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* Jednoduchý zoznam (doprava) */
+.plain-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.plain-list li {
+  margin-bottom: 0.45rem;
+}
+
+.plain-list li::marker {
+  color: var(--color-gold);
+}
+
+/* Mapa */
+.map-wrap {
+  margin-top: 0.5rem;
+  border-radius: calc(var(--radius) - 2px);
+  overflow: hidden;
+  border: 1px solid rgba(42, 41, 38, 0.08);
+}
+
 .map-wrap iframe {
+  display: block;
   width: 100%;
-  border-radius: 8px;
+  height: 380px;
+  border: 0;
+}
+
+@media (min-width: 520px) {
+  .map-wrap iframe {
+    height: 420px;
+  }
+}
+
+/* Tlačidlo / odkaz */
+.button {
+  display: inline-block;
+  margin-top: 0.25rem;
+  padding: 0.65rem 1.35rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: #fff;
+  background: var(--color-accent);
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background: var(--color-accent-dark);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* Pätička */
+.site-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.site-footer p {
+  margin: 0;
 }
