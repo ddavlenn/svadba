@@ -306,7 +306,9 @@ main {
 
 /* Lightbox — zväčšenie fotky */
 .lightbox {
-  position: relative;
+  position: fixed;
+  inset: 0;
+  margin: auto;
   max-width: min(95vw, 960px);
   max-height: 90vh;
   max-height: 90dvh;
@@ -374,10 +376,6 @@ main {
 .lightbox-close:focus-visible {
   outline: 2px solid var(--color-gold);
   outline-offset: 2px;
-}
-
-.lightbox {
-  position: relative;
 }
 
 /* Program — Blatné | Cífer vedľa seba od strednej šírky */
