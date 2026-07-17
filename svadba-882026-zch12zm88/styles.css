@@ -70,12 +70,44 @@ body {
 }
 
 .hero h1 {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.5rem;
   font-family: var(--font-heading);
   font-size: clamp(2.4rem, 8vw, 3.25rem);
   font-weight: 600;
   line-height: 1.15;
   color: var(--color-text);
+}
+
+.hero-couple {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.9rem, 6vw, 2.65rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.2;
+  color: var(--color-accent-dark);
+}
+
+.hero-amp {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--color-gold);
+}
+
+.hero-meta {
+  margin: 0 0 1.35rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 3vw, 1.2rem);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.hero-meta-sep {
+  margin: 0 0.45rem;
+  font-weight: 400;
+  opacity: 0.75;
 }
 
 .hero-lead {
