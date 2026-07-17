@@ -217,7 +217,35 @@
 
       <section class="block" id="parkovanie">
         <h2>Možnosti parkovania</h2>
-        <p class="placeholder">Informácie doplníme čoskoro.</p>
+        <p class="block-intro">Pri odobierke v Blatnom — ak sa nezmestíte hneď pri dome, máte ešte tieto možnosti.</p>
+        <ul class="plain-list">
+          <li>Na našej ulici a u pred susedmi — na krátkodobé parkovanie počas odobierky.</li>
+          <li>Na okraji cesty aj o pár domov ďalej (cca 3–4 domy).</li>
+          <li>Okrem toho je pár voľných miest pri parkovisku pred parkom (cca 70 m od parku) — presnú polohu nájdete na mape.</li>
+        </ul>
+
+        <div class="photo-grid" aria-label="Fotografie parkovania">
+          <figure class="photo-card">
+            <button type="button" class="photo-thumb" aria-label="Zväčšiť: Parkovisko pred parkom">
+              <img src="parkovisko_pred_parkom.jpg" alt="Parkovisko pred parkom v Blatnom" width="800" height="600" loading="lazy">
+            </button>
+            <figcaption>Parkovisko pred parkom</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <button type="button" class="photo-thumb" aria-label="Zväčšiť: Parkovanie pred kostolom">
+              <img src="parkovanie_pred_kostolom.jpg" alt="Parkovanie pred kostolom v Blatnom" width="800" height="600" loading="lazy">
+            </button>
+            <figcaption>Parkovanie pred kostolom</figcaption>
+          </figure>
+        </div>
+        <p class="photo-hint">Kliknutím na fotku ju zväčšíte.</p>
+
+        <p class="map-actions">
+          <span class="nav-links">
+            <a class="map-link" href="https://maps.app.goo.gl/CvQe9rtQi4h2wYDq6" target="_blank" rel="noopener noreferrer">Maps</a>
+            <a class="map-link map-link--waze" href="https://www.waze.com/ul?ll=48.265217,17.415875&navigate=yes" target="_blank" rel="noopener noreferrer">Waze</a>
+          </span>
+        </p>
       </section>
 
       <section class="block" id="fotky">
@@ -238,5 +266,45 @@
       <p>Tešíme sa na vás.</p>
     </footer>
   </div>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Zväčšená fotografia">
+    <button type="button" class="lightbox-close" aria-label="Zavrieť">×</button>
+    <figure class="lightbox-figure">
+      <img class="lightbox-img" src="" alt="">
+      <figcaption class="lightbox-caption"></figcaption>
+    </figure>
+  </dialog>
+
+  <script>
+    (function () {
+      var lightbox = document.getElementById("lightbox");
+      if (!lightbox) return;
+
+      var lightboxImg = lightbox.querySelector(".lightbox-img");
+      var lightboxCaption = lightbox.querySelector(".lightbox-caption");
+      var closeBtn = lightbox.querySelector(".lightbox-close");
+
+      document.querySelectorAll(".photo-thumb").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var img = btn.querySelector("img");
+          var caption = btn.closest(".photo-card").querySelector("figcaption");
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightboxCaption.textContent = caption ? caption.textContent : "";
+          lightbox.showModal();
+        });
+      });
+
+      closeBtn.addEventListener("click", function () {
+        lightbox.close();
+      });
+
+      lightbox.addEventListener("click", function (event) {
+        if (event.target === lightbox) {
+          lightbox.close();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
