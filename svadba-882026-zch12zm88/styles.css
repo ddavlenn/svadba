@@ -308,12 +308,15 @@ main {
 .lightbox {
   position: relative;
   max-width: min(95vw, 960px);
+  max-height: 90vh;
+  max-height: 90dvh;
   width: 100%;
   padding: 0;
   border: none;
   border-radius: var(--radius);
   background: var(--color-surface);
   box-shadow: 0 8px 32px rgba(42, 41, 38, 0.2);
+  overflow: hidden;
 }
 
 .lightbox::backdrop {
@@ -321,19 +324,26 @@ main {
 }
 
 .lightbox-figure {
+  display: flex;
+  flex-direction: column;
   margin: 0;
+  max-height: 90vh;
+  max-height: 90dvh;
 }
 
 .lightbox-img {
   display: block;
   width: 100%;
-  max-height: 85vh;
-  height: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: 75vh;
+  max-height: 75dvh;
   object-fit: contain;
   background: #1a1a18;
 }
 
 .lightbox-caption {
+  flex: 0 0 auto;
   padding: 0.75rem 1rem;
   font-size: 0.95rem;
   color: var(--color-text-muted);

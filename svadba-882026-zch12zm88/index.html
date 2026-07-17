@@ -19,10 +19,10 @@
 </script> -->
 
   <div class="page">
-    <p class="banner" role="status">
+    <!-- <p class="banner" role="status">
       Stránka je ešte vo vývoji — bližšie informácie budú dostupné koncom mája.
       Prosím, prezrite si ju hlavne pár dní pred svadbou.
-    </p>
+    </p> -->
 
     <header class="hero">
       <p class="hero-label">Vitajte</p>
@@ -53,7 +53,7 @@
                 <span class="program-name" role="columnheader">Udalosť</span>
               </div>
               <div class="program-row" role="row">
-                <span class="program-time">cca 14:00–14:30</span>
+                <span class="program-time">14:00</span>
                 <span class="program-name">Odobierka
                   <span class="nav-links">
                     <a class="map-link" href="https://www.google.com/maps/dir/?api=1&destination=48.265938,17.4156507" target="_blank" rel="noopener noreferrer">Maps</a>
@@ -219,9 +219,9 @@
         <h2>Možnosti parkovania</h2>
         <p class="block-intro">Pri odobierke v Blatnom — ak sa nezmestíte hneď pri dome, máte ešte tieto možnosti.</p>
         <ul class="plain-list">
-          <li>Na našej ulici a u pred susedmi — na krátkodobé parkovanie počas odobierky.</li>
+          <li>Na našej ulici u pred susedmi — na krátkodobé parkovanie počas odobierky.</li>
           <li>Na okraji cesty aj o pár domov ďalej (cca 3–4 domy).</li>
-          <li>Okrem toho je pár voľných miest pri parkovisku pred parkom (cca 70 m od parku) — presnú polohu nájdete na mape.</li>
+          <li>Okrem toho je pár voľných miest pri parkovisku pred parkom (cca 70 m od domu) — presnú polohu nájdete na mape.</li>
         </ul>
 
         <div class="photo-grid" aria-label="Fotografie parkovania">
@@ -283,25 +283,39 @@
       var lightboxImg = lightbox.querySelector(".lightbox-img");
       var lightboxCaption = lightbox.querySelector(".lightbox-caption");
       var closeBtn = lightbox.querySelector(".lightbox-close");
+      var savedScrollY = 0;
+
+      // Niektoré mobilné prehliadače pri showModal()/close() skočia na vrch
+      // stránky — pozíciu scrollu si zapamätáme a po otvorení/zatvorení ju vrátime.
+      function keepScrollPosition() {
+        window.scrollTo(window.scrollX, savedScrollY);
+      }
 
       document.querySelectorAll(".photo-thumb").forEach(function (btn) {
         btn.addEventListener("click", function () {
           var img = btn.querySelector("img");
           var caption = btn.closest(".photo-card").querySelector("figcaption");
+          savedScrollY = window.scrollY;
           lightboxImg.src = img.src;
           lightboxImg.alt = img.alt;
           lightboxCaption.textContent = caption ? caption.textContent : "";
           lightbox.showModal();
+          keepScrollPosition();
         });
       });
 
-      closeBtn.addEventListener("click", function () {
+      function closeLightbox() {
         lightbox.close();
-      });
+      }
+
+      // Pokrýva zatvorenie krížikom, klikom na pozadie aj klávesom Escape.
+      lightbox.addEventListener("close", keepScrollPosition);
+
+      closeBtn.addEventListener("click", closeLightbox);
 
       lightbox.addEventListener("click", function (event) {
         if (event.target === lightbox) {
-          lightbox.close();
+          closeLightbox();
         }
       });
     })();
